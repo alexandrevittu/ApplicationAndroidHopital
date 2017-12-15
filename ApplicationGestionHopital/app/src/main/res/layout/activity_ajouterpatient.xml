@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.alexandre.gestionhopital.ajouterpatientActivity">
+
+    <TextView
+        android:id="@+id/txtnom"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="42dp"
+        android:text="Saisir votre nom :"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <EditText
+        android:id="@+id/edittxtnom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtnom"
+        android:layout_alignBottom="@+id/txtnom"
+        android:layout_toEndOf="@+id/txtnom"
+        android:layout_toRightOf="@+id/txtnom"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="52dp" />
+
+    <TextView
+        android:id="@+id/txtprenom"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtnom"
+        android:layout_marginTop="19dp"
+        android:text="Saisir votre prenom :"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <EditText
+        android:id="@+id/edittxtprenom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtprenom"
+        android:layout_alignBottom="@+id/txtprenom"
+        android:layout_toEndOf="@+id/txtprenom"
+        android:layout_toRightOf="@+id/txtprenom"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="52dp" />
+
+    <TextView
+        android:id="@+id/txtnumsecu"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtprenom"
+        android:layout_marginTop="16dp"
+        android:text="Saisir votre numero de securité sociale :"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <EditText
+        android:id="@+id/edittxtnumsecu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtnumsecu"
+        android:layout_toEndOf="@+id/txtnumsecu"
+        android:layout_toRightOf="@+id/txtnumsecu"
+        android:ems="10"
+        android:inputType="number"
+        android:text=""
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="52dp" />
+
+    <TextView
+        android:id="@+id/txtdatenaiss"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edittxtnumsecu"
+        android:layout_marginTop="20dp"
+        android:text="Saisir votre date de naissance :"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <EditText
+        android:id="@+id/edittxtdatenaiss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtdatenaiss"
+        android:layout_alignBottom="@+id/txtdatenaiss"
+        android:layout_toEndOf="@+id/txtdatenaiss"
+        android:layout_toRightOf="@+id/txtdatenaiss"
+        android:ems="10"
+        android:inputType="datetime"
+        android:text=""
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="52dp" />
+
+    <TextView
+        android:id="@+id/txtcodepostal"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtdatenaiss"
+        android:layout_marginTop="15dp"
+        android:text="Saisir votre codepostal :"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <EditText
+        android:id="@+id/edittxtcodepostal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtcodepostal"
+        android:layout_alignBottom="@+id/txtcodepostal"
+        android:layout_toEndOf="@+id/txtcodepostal"
+        android:layout_toRightOf="@+id/txtcodepostal"
+        android:ems="10"
+        android:inputType="number"
+        android:text=""
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="52dp" />
+
+    <TextView
+        android:id="@+id/txtmail"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/edittxtmail"
+        android:layout_alignBottom="@+id/edittxtmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Saisir votre mail :"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <EditText
+        android:id="@+id/edittxtmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edittxtcodepostal"
+        android:layout_toEndOf="@+id/txtmail"
+        android:layout_toRightOf="@+id/txtmail"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text=""
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="52dp" />
+
+    <TextView
+        android:id="@+id/txtasurer"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtmail"
+        android:layout_marginTop="12dp"
+        android:text="Saisir si vous ete assurer ou non :"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <EditText
+        android:id="@+id/edittxtassurer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edittxtmail"
+        android:layout_toEndOf="@+id/txtasurer"
+        android:layout_toRightOf="@+id/txtasurer"
+        android:ems="10"
+        android:inputType="number"
+        android:text=""
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="52dp" />
+
+    <Button
+        android:id="@+id/btnvalider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtmail"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/txtmail"
+        android:layout_marginBottom="34dp"
+        android:text="Valider" />
+
+
+</RelativeLayout>

@@ -15,12 +15,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btnafficherpatient = (Button)findViewById(R.id.btnafficherpatient);
+        Button btnajouterpatient = (Button)findViewById(R.id.btnajouterpatient);
 
         btnafficherpatient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent afficherpatientIntent = new Intent(MainActivity.this,afficherpatientActivity.class);
                 startActivity(afficherpatientIntent);
+            }
+        });
+
+        btnajouterpatient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ajouterpatientIntent = new Intent(MainActivity.this,ajouterpatientActivity.class);
+                startActivity(ajouterpatientIntent);
             }
         });
     }

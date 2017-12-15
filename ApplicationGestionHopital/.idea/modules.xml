@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ApplicationGestionHopital.iml" filepath="$PROJECT_DIR$/ApplicationGestionHopital.iml" />
+      <module fileurl="file://E:\SIO2\vittu\AppliAndroidHopital\ApplicationAndroidHopital\ApplicationGestionHopital\ApplicationGestionHopital.iml" filepath="E:\SIO2\vittu\AppliAndroidHopital\ApplicationAndroidHopital\ApplicationGestionHopital\ApplicationGestionHopital.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://E:\SIO2\vittu\AppliAndroidHopital\ApplicationAndroidHopital\ApplicationGestionHopital\app\app.iml" filepath="E:\SIO2\vittu\AppliAndroidHopital\ApplicationAndroidHopital\ApplicationGestionHopital\app\app.iml" />
     </modules>
   </component>
 </project>

@@ -9,7 +9,7 @@ import java.util.Date;
 public class Patient {
 
     int id;
-    String numsecu;
+    int numsecu;
     String nom;
     String prenom;
     Date datenaiss;
@@ -17,7 +17,7 @@ public class Patient {
     String mail;
     int assurer;
 
-    public Patient(int Pid,String Pnumsecu,String Pnom,String Pprenom,Date Pdatenaiss,int Pcodepostal,String Pmail,int Passurer)
+    public Patient(int Pid,int Pnumsecu,String Pnom,String Pprenom,Date Pdatenaiss,int Pcodepostal,String Pmail,int Passurer)
     {
         id = Pid;
         numsecu = Pnumsecu;
@@ -27,6 +27,11 @@ public class Patient {
         codepostal = Pcodepostal;
         mail = Pmail;
         assurer = Passurer;
+    }
+
+    public String toString()
+    {
+        return "nom "+nom+" prenom "+prenom;
     }
 
 }

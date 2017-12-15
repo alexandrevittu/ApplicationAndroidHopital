@@ -19,5 +19,17 @@
         android:layout_marginTop="35dp"
         android:text="afficher les patients" />
 
+    <Button
+        android:id="@+id/btnajouterpatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnafficherpatient"
+        android:layout_alignLeft="@+id/btnafficherpatient"
+        android:layout_alignRight="@+id/btnafficherpatient"
+        android:layout_alignStart="@+id/btnafficherpatient"
+        android:layout_below="@+id/btnafficherpatient"
+        android:layout_marginTop="20dp"
+        android:text="Ajouter patient" />
+
 
 </RelativeLayout>
