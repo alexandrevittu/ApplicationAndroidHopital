@@ -1,12 +1,16 @@
 package com.example.alexandre.gestionhopital;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -27,7 +31,7 @@ public class afficherpatientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_afficherpatient);
 
-        ListView affichage = (ListView) findViewById(R.id.lespatients);
+        final ListView affichage = (ListView) findViewById(R.id.lespatients);
 
         String leResultat;
         TacheAsync maTache = new TacheAsync();
@@ -57,6 +61,18 @@ public class afficherpatientActivity extends AppCompatActivity {
         ArrayAdapter<Patient> dataAdapter;
         dataAdapter = new ArrayAdapter<Patient>(this,android.R.layout.simple_list_item_1,lespatients);
         affichage.setAdapter(dataAdapter);
+        affichage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Patient selected = (Patient) (affichage.getItemAtPosition(i));
+                Toast toast = Toast.makeText(getApplication().getBaseContext(), "nice"+selected.getPrenom()+selected.getCodepostal(), Toast.LENGTH_SHORT);
+                toast.show();
+                Intent afficherlepatient = new Intent(afficherpatientActivity.this,afficherlepatientActivity.class);
+                afficherlepatient.putExtra("patient",selected);
+                startActivity(afficherlepatient);
+
+            }
+        });
     }
 
     public class TacheAsync extends AsyncTask<String, Integer, String> {

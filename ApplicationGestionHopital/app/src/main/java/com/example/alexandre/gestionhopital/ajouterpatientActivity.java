@@ -119,7 +119,7 @@ public class ajouterpatientActivity extends AppCompatActivity {
                     aRetourner = leBuffer.toString();
                 }
                 else{
-                    aRetourner="erreu";
+                    aRetourner="erreur";
                 }
                 }
                 catch (Exception e) {

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.alexandre.gestionhopital.afficherlepatientActivity">
+
+    <TextView
+    android:id="@+id/txtnompatient"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginLeft="5dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginTop="51dp"
+    android:text="nom :"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="62dp" />
+
+    <TextView
+        android:id="@+id/txtprenompatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtnompatient"
+        android:layout_alignStart="@+id/txtnompatient"
+        android:layout_below="@+id/txtnompatient"
+        android:layout_marginTop="19dp"
+        android:text="prenom :"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="62dp" />
+
+    <TextView
+        android:id="@+id/txtnumsecupatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtprenompatient"
+        android:layout_alignStart="@+id/txtprenompatient"
+        android:layout_below="@+id/txtprenompatient"
+        android:layout_marginTop="19dp"
+        android:text="numero de securite social :"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="62dp" />
+
+    <TextView
+        android:id="@+id/txtdatenaisspatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtnumsecupatient"
+        android:layout_alignStart="@+id/txtnumsecupatient"
+        android:layout_below="@+id/txtnumsecupatient"
+        android:layout_marginTop="19dp"
+        android:text="date de naissance :"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="62dp" />
+
+    <TextView
+        android:id="@+id/txtmailpatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtdatenaisspatient"
+        android:layout_alignStart="@+id/txtdatenaisspatient"
+        android:layout_below="@+id/txtdatenaisspatient"
+        android:layout_marginTop="19dp"
+        android:text="mail :"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="62dp" />
+
+    <TextView
+        android:id="@+id/txtcodepostalpatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtmailpatient"
+        android:layout_alignStart="@+id/txtmailpatient"
+        android:layout_below="@+id/txtmailpatient"
+        android:layout_marginTop="19dp"
+        android:text="code postal :"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="62dp" />
+
+
+    <TextView
+        android:id="@+id/txtassurerpatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtcodepostalpatient"
+        android:layout_alignStart="@+id/txtcodepostalpatient"
+        android:layout_below="@+id/txtcodepostalpatient"
+        android:layout_marginTop="19dp"
+        android:text="assurer :"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="62dp" />
+
+</RelativeLayout>

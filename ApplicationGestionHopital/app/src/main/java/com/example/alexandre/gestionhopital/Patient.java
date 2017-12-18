@@ -1,12 +1,14 @@
 package com.example.alexandre.gestionhopital;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Alexandre on 14/12/2017.
  */
 
-public class Patient {
+public class Patient implements Serializable {
+
 
     int id;
     int numsecu;
@@ -31,7 +33,7 @@ public class Patient {
 
     public String toString()
     {
-        return "nom "+nom+" prenom "+prenom;
+        return "nom :"+nom+" prenom :"+prenom;
     }
 
     public String getPrenom() {
