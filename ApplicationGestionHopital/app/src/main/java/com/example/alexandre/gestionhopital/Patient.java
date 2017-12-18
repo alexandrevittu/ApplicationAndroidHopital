@@ -34,4 +34,35 @@ public class Patient {
         return "nom "+nom+" prenom "+prenom;
     }
 
+    public String getPrenom() {
+        return prenom;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public int getNumsecu() {
+        return numsecu;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public Date getDatenaiss() {
+        return datenaiss;
+    }
+
+    public int getCodepostal() {
+        return codepostal;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public int getAssurer() {
+        return assurer;
+    }
+
 }
