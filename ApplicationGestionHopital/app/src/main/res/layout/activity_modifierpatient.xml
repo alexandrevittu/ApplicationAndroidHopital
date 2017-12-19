@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundappli"
+
+    tools:context="com.example.alexandre.gestionhopital.modifierpatientActivity">
+
+
+    <TextView
+        android:id="@+id/txtaccueilmodif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Modification d'un patient"
+        android:textColor="#FFFFFF"
+
+        />
+
+    <TextView
+        android:id="@+id/txtviewmodifnom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtnommodif"
+        android:layout_alignBottom="@+id/txtnommodif"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#FFFFFF"
+        android:text="nom : " />
+
+    <EditText
+        android:id="@+id/txtnommodif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtaccueilmodif"
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/txtviewmodifnom"
+        android:layout_toRightOf="@+id/txtviewmodifnom"
+        android:ems="8"
+        android:inputType="text"
+        android:textColor="#FFFFFF"
+
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txtviewmodifprenom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtnommodif"
+        android:layout_marginTop="29dp"
+        android:text="prenom :"
+        android:textColor="#FFFFFF"
+        />
+
+    <EditText
+        android:id="@+id/txtprenommodif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtviewmodifprenom"
+        android:layout_alignBottom="@+id/txtviewmodifprenom"
+        android:layout_alignLeft="@+id/txtnommodif"
+        android:layout_alignStart="@+id/txtnommodif"
+        android:ems="8"
+        android:inputType="text"
+        android:textColor="#FFFFFF"
+
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txtviewmodifnumsecu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtprenommodif"
+        android:layout_marginTop="27dp"
+        android:textColor="#FFFFFF"
+
+        android:text="numero de securité social :" />
+
+    <EditText
+        android:id="@+id/txtnumsecumodif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtviewmodifnumsecu"
+        android:layout_alignBottom="@+id/txtviewmodifnumsecu"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@+id/txtviewmodifnumsecu"
+        android:layout_toRightOf="@+id/txtviewmodifnumsecu"
+        android:ems="8"
+        android:inputType="number"
+        android:textColor="#FFFFFF"
+
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txtviewdatenaissmodif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtnumsecumodif"
+        android:textColor="#FFFFFF"
+
+        android:layout_marginTop="23dp"
+        android:text="date de naissance :" />
+
+    <EditText
+        android:id="@+id/txtdatemodif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtviewdatenaissmodif"
+        android:layout_alignBottom="@+id/txtviewdatenaissmodif"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@+id/txtviewdatenaissmodif"
+        android:layout_toRightOf="@+id/txtviewdatenaissmodif"
+        android:textColor="#FFFFFF"
+
+        android:ems="8"
+        android:inputType="date"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txtviewcodepostalmodif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#FFFFFF"
+
+        android:layout_below="@+id/txtdatemodif"
+        android:layout_marginTop="33dp"
+        android:text="code postal :" />
+
+    <EditText
+        android:id="@+id/txtcodepostalmodif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtviewcodepostalmodif"
+        android:layout_alignBottom="@+id/txtviewcodepostalmodif"
+        android:layout_centerHorizontal="true"
+        android:ems="8"
+        android:inputType="number"
+        android:textColor="#FFFFFF"
+
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txtviewmailmodif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtcodepostalmodif"
+        android:layout_marginTop="36dp"
+        android:textColor="#FFFFFF"
+
+        android:text="mail :" />
+
+    <EditText
+        android:id="@+id/txtmailmodif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtviewmailmodif"
+        android:layout_alignBottom="@+id/txtviewmailmodif"
+        android:layout_toEndOf="@+id/txtviewmodifprenom"
+        android:layout_toRightOf="@+id/txtviewmodifprenom"
+        android:ems="8"
+        android:inputType="text"
+        android:textColor="#FFFFFF"
+
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txtviewassurermodif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtmailmodif"
+        android:textColor="#FFFFFF"
+
+        android:layout_marginTop="25dp"
+        android:text="assurer : " />
+
+    <EditText
+        android:id="@+id/txtassurermodif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtviewassurermodif"
+        android:layout_alignBottom="@+id/txtviewassurermodif"
+        android:layout_toEndOf="@+id/txtviewcodepostalmodif"
+        android:layout_toRightOf="@+id/txtviewcodepostalmodif"
+        android:textColor="#FFFFFF"
+
+        android:ems="8"
+        android:inputType="number"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btnvalidermodif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="12dp"
+        android:textColor="#FFFFFF"
+        android:background="#0000FF"
+        android:text="Modifier" />
+
+
+</RelativeLayout>

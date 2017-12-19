@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundappli"
+
     tools:context="com.example.alexandre.gestionhopital.ajouterpatientActivity">
 
     <TextView
@@ -16,7 +18,10 @@
         android:layout_marginTop="42dp"
         android:text="Saisir votre nom :"
         tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="54dp" />
+        tools:layout_editor_absoluteY="54dp"
+        android:textColor="#FFFFFF"
+
+        />
 
     <EditText
         android:id="@+id/edittxtnom"
@@ -29,6 +34,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
+        android:textColor="#FFFFFF"
+
         tools:layout_editor_absoluteX="94dp"
         tools:layout_editor_absoluteY="52dp" />
 
@@ -39,6 +46,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/txtnom"
+        android:textColor="#FFFFFF"
+
         android:layout_marginTop="19dp"
         android:text="Saisir votre prenom :"
         tools:layout_editor_absoluteX="25dp"
@@ -53,6 +62,7 @@
         android:layout_toEndOf="@+id/txtprenom"
         android:layout_toRightOf="@+id/txtprenom"
         android:ems="10"
+        android:textColor="#FFFFFF"
         android:inputType="textPersonName"
         android:text=""
         tools:layout_editor_absoluteX="94dp"
@@ -61,6 +71,7 @@
     <TextView
         android:id="@+id/txtnumsecu"
         android:layout_width="wrap_content"
+        android:textColor="#FFFFFF"
         android:layout_height="37dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -79,6 +90,7 @@
         android:layout_toRightOf="@+id/txtnumsecu"
         android:ems="10"
         android:inputType="number"
+        android:textColor="#FFFFFF"
         android:text=""
         tools:layout_editor_absoluteX="94dp"
         tools:layout_editor_absoluteY="52dp" />
@@ -91,6 +103,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edittxtnumsecu"
         android:layout_marginTop="20dp"
+        android:textColor="#FFFFFF"
         android:text="Saisir votre date de naissance :"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="54dp" />
@@ -102,6 +115,7 @@
         android:layout_alignBaseline="@+id/txtdatenaiss"
         android:layout_alignBottom="@+id/txtdatenaiss"
         android:layout_toEndOf="@+id/txtdatenaiss"
+        android:textColor="#FFFFFF"
         android:layout_toRightOf="@+id/txtdatenaiss"
         android:ems="10"
         android:inputType="datetime"
@@ -119,6 +133,7 @@
         android:layout_marginTop="15dp"
         android:text="Saisir votre codepostal :"
         tools:layout_editor_absoluteX="25dp"
+        android:textColor="#FFFFFF"
         tools:layout_editor_absoluteY="54dp" />
 
     <EditText
@@ -130,6 +145,7 @@
         android:layout_toEndOf="@+id/txtcodepostal"
         android:layout_toRightOf="@+id/txtcodepostal"
         android:ems="10"
+        android:textColor="#FFFFFF"
         android:inputType="number"
         android:text=""
         tools:layout_editor_absoluteX="94dp"
@@ -143,6 +159,7 @@
         android:layout_alignBottom="@+id/edittxtmail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:textColor="#FFFFFF"
         android:text="Saisir votre mail :"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="54dp" />
@@ -155,6 +172,7 @@
         android:layout_toEndOf="@+id/txtmail"
         android:layout_toRightOf="@+id/txtmail"
         android:ems="10"
+        android:textColor="#FFFFFF"
         android:inputType="textEmailAddress"
         android:text=""
         tools:layout_editor_absoluteX="94dp"
@@ -168,6 +186,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/txtmail"
         android:layout_marginTop="12dp"
+        android:textColor="#FFFFFF"
         android:text="Saisir si vous ete assurer ou non :"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="54dp" />
@@ -180,6 +199,7 @@
         android:layout_toEndOf="@+id/txtasurer"
         android:layout_toRightOf="@+id/txtasurer"
         android:ems="10"
+        android:textColor="#FFFFFF"
         android:inputType="number"
         android:text=""
         tools:layout_editor_absoluteX="94dp"
@@ -193,6 +213,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/txtmail"
         android:layout_marginBottom="34dp"
+        android:textColor="#FFFFFF"
+        android:background="#0000FF"
         android:text="Valider" />
 
 

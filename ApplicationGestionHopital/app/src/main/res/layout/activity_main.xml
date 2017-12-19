@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundappli"
     tools:context="com.example.alexandre.gestionhopital.MainActivity">
 
 
@@ -16,6 +17,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="22dp"
         android:layout_marginStart="22dp"
+        android:textColor="#FFFFFF"
+        android:background="#0000FF"
         android:layout_marginTop="35dp"
         android:text="afficher les patients" />
 
@@ -29,6 +32,8 @@
         android:layout_alignStart="@+id/btnafficherpatient"
         android:layout_below="@+id/btnafficherpatient"
         android:layout_marginTop="20dp"
+        android:textColor="#FFFFFF"
+        android:background="#0000FF"
         android:text="Ajouter patient" />
 
 

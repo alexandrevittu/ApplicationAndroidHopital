@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".afficherpatientActivity" />
         <activity android:name=".ajouterpatientActivity" />
-        <activity android:name=".afficherlepatientActivity"></activity>
+        <activity android:name=".afficherlepatientActivity" />
+        <activity android:name=".modifierpatientActivity"></activity>
     </application>
 
 </manifest>

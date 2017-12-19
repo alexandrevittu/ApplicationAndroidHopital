@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -61,14 +62,9 @@ public class ajouterpatientActivity extends AppCompatActivity {
 
                 Patient patient1= new  Patient(20,numsecu,nom,prenom,date,codepostal,mail,assurer);
                 maTache.execute(patient1);
-                try {
-                    //txtnom.setText(maTache.get());
-                    //txtnom.setText(txtdatenaiss.getText().toString());
-                }
-                catch (Exception e)
-                {
-
-                }
+                Toast toast = Toast.makeText(getApplication().getBaseContext(), "le patient a ete ajouter", Toast.LENGTH_SHORT);
+                toast.show();
+                finish();
             }
         });
     }

@@ -31,8 +31,8 @@ public class afficherpatientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_afficherpatient);
 
-        final ListView affichage = (ListView) findViewById(R.id.lespatients);
 
+        final ListView affichage = (ListView) findViewById(R.id.lespatients);
         String leResultat;
         TacheAsync maTache = new TacheAsync();
         maTache.execute();
@@ -57,7 +57,6 @@ public class afficherpatientActivity extends AppCompatActivity {
         } catch (Exception e) {
             leResultat = "erreur";
         }
-
         ArrayAdapter<Patient> dataAdapter;
         dataAdapter = new ArrayAdapter<Patient>(this,android.R.layout.simple_list_item_1,lespatients);
         affichage.setAdapter(dataAdapter);
@@ -70,6 +69,7 @@ public class afficherpatientActivity extends AppCompatActivity {
                 Intent afficherlepatient = new Intent(afficherpatientActivity.this,afficherlepatientActivity.class);
                 afficherlepatient.putExtra("patient",selected);
                 startActivity(afficherlepatient);
+                finish();
 
             }
         });

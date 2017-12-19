@@ -4,19 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundappli"
+
     tools:context="com.example.alexandre.gestionhopital.afficherlepatientActivity">
 
     <TextView
-    android:id="@+id/txtnompatient"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentTop="true"
-    android:layout_marginLeft="5dp"
-    android:layout_marginStart="5dp"
-    android:layout_marginTop="51dp"
-    android:text="nom :"
+        android:id="@+id/txtnompatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="51dp"
+        android:text="nom :"
+
     tools:layout_editor_absoluteX="16dp"
     tools:layout_editor_absoluteY="62dp" />
 
@@ -26,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtnompatient"
         android:layout_alignStart="@+id/txtnompatient"
+        android:textColor="#FFFFFF"
         android:layout_below="@+id/txtnompatient"
         android:layout_marginTop="19dp"
         android:text="prenom :"
@@ -40,6 +45,7 @@
         android:layout_alignStart="@+id/txtprenompatient"
         android:layout_below="@+id/txtprenompatient"
         android:layout_marginTop="19dp"
+        android:textColor="#FFFFFF"
         android:text="numero de securite social :"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="62dp" />
@@ -52,6 +58,7 @@
         android:layout_alignStart="@+id/txtnumsecupatient"
         android:layout_below="@+id/txtnumsecupatient"
         android:layout_marginTop="19dp"
+        android:textColor="#FFFFFF"
         android:text="date de naissance :"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="62dp" />
@@ -64,6 +71,7 @@
         android:layout_alignStart="@+id/txtdatenaisspatient"
         android:layout_below="@+id/txtdatenaisspatient"
         android:layout_marginTop="19dp"
+        android:textColor="#FFFFFF"
         android:text="mail :"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="62dp" />
@@ -76,6 +84,7 @@
         android:layout_alignStart="@+id/txtmailpatient"
         android:layout_below="@+id/txtmailpatient"
         android:layout_marginTop="19dp"
+        android:textColor="#FFFFFF"
         android:text="code postal :"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="62dp" />
@@ -89,6 +98,7 @@
         android:layout_alignStart="@+id/txtcodepostalpatient"
         android:layout_below="@+id/txtcodepostalpatient"
         android:layout_marginTop="19dp"
+        android:textColor="#FFFFFF"
         android:text="assurer :"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="62dp" />
@@ -103,6 +113,20 @@
         android:layout_marginBottom="60dp"
         android:layout_marginEnd="59dp"
         android:layout_marginRight="59dp"
+        android:background="#0000FF"
+        android:textColor="#FFFFFF"
         android:text="supprimer" />
+
+    <Button
+        android:id="@+id/btnmodifpatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnsupppatient"
+        android:layout_alignBottom="@+id/btnsupppatient"
+        android:layout_toEndOf="@+id/txtprenompatient"
+        android:layout_toRightOf="@+id/txtprenompatient"
+        android:textColor="#FFFFFF"
+        android:background="#0000FF"
+        android:text="modifier" />
 
 </RelativeLayout>

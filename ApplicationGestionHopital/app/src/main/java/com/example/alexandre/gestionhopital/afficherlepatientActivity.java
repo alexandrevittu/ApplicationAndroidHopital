@@ -1,5 +1,6 @@
 package com.example.alexandre.gestionhopital;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.io.BufferedInputStream;
@@ -20,6 +22,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class afficherlepatientActivity extends AppCompatActivity {
@@ -40,13 +43,10 @@ public class afficherlepatientActivity extends AppCompatActivity {
         TextView txtviewmail = (TextView)findViewById(R.id.txtmailpatient);
         txtviewnom.setText("nom : "+lepatient.getNom());
         txtviewprenom.setText("prenom : "+lepatient.getPrenom());
-        txtviewdatenaiss.setText("datenaiss : "+lepatient.getDatenaiss());
-        /*Date date = lepatient.getDatenaiss();
-        try{
-            date = sdf.parse(date.toString());
-        }catch (Exception e){
 
-        };*/
+        Date date = lepatient.getDatenaiss();
+        String datestring = sdf.format(date);
+        txtviewdatenaiss.setText("datenaiss : "+datestring);
         txtviewmail.setText("mail : "+lepatient.getMail());
         txtviewcodepostal.setText("code postal : "+lepatient.getCodepostal());
         txtviewnumsecu.setText("numero de securité social : "+lepatient.getNumsecu());
@@ -54,11 +54,30 @@ public class afficherlepatientActivity extends AppCompatActivity {
         lepatient.getId();
         Button btnsupp = (Button)findViewById(R.id.btnsupppatient);
         btnsupp.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                       public void onClick(View view) {
+                                           try {
+                                               TacheAsync matache = new TacheAsync();
+                                               matache.execute(lepatient);
+                                               Toast toast = Toast.makeText(getApplication().getBaseContext(), "le patient a ete supprimer", Toast.LENGTH_SHORT);
+                                               toast.show();
+                                               finish();
+
+                                           } catch (Exception e) {
+                                               Toast toast = Toast.makeText(getApplication().getBaseContext(), "Erreur", Toast.LENGTH_SHORT);
+                                               toast.show();
+                                           }
+                                       }
+                                   }
+        );
+        Button btnmodif = (Button)findViewById(R.id.btnmodifpatient);
+        btnmodif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    TacheAsync matache = new TacheAsync();
-                    matache.execute(lepatient);
 
+                Intent modifierpatient = new Intent(afficherlepatientActivity.this,modifierpatientActivity.class);
+                modifierpatient.putExtra("patient",lepatient);
+                startActivity(modifierpatient);
             }
         });
 

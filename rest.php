@@ -44,13 +44,14 @@ switch($methode)
   case "POST" :
 
 	   $patient = ajouterpatient($_POST['numerosecu'],$_POST['nom'],$_POST['prenom'],$_POST['datenaiss'],$_POST['codepostal'],$_POST['mail'],$_POST['assurer']);
-	  
-	  
+
+
     break;
 
   case "PUT":
 
     parse_str(file_get_contents('php://input'),$_PUT);
+    modifierpatient($_PUT['id'],$_PUT['numerosecu'],$_PUT['nom'],$_PUT['prenom'],$_PUT['datenaiss'],$_PUT['codepostal'],$_PUT['mail'],$_PUT['assurer']);
 
 
 
@@ -85,7 +86,7 @@ function suppPatient($id)
 	$dbh = connexion();
 	$PdoStatement = $dbh->prepare("DELETE FROM patient where id=:id");
 	$PdoStatement->bindparam('id',$id);
-	 
+
 	if($PdoStatement->execute()){
       $PdoStatement->closeCursor();
       $dbh=null;
@@ -93,7 +94,7 @@ function suppPatient($id)
 	else{
       throw new Exception("Erreur de suppresion de patient");
 	}
-  
+
 }
 
 function getPatient($id){
@@ -146,6 +147,14 @@ function modifierpatient($id,$numerosecu,$nom,$prenom,$datenaiss,$codepostal,$ma
   $PdoStatement->bindvalue("codepostal",$codepostal);
   $PdoStatement->bindvalue("mail",$mail);
   $PdoStatement->bindvalue("assurer",$assurer);
+
+  if($PdoStatement->execute()){
+      $PdoStatement->closeCursor();
+      $dbh=null;
+  }
+  else{
+      throw new Exception("Erreur modification du patient");
+  }
 
 }
 

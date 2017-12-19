@@ -33,7 +33,7 @@ public class Patient implements Serializable {
 
     public String toString()
     {
-        return "nom :"+nom+" prenom :"+prenom;
+        return "nom : "+nom+" prenom : "+prenom;
     }
 
     public String getPrenom() {
