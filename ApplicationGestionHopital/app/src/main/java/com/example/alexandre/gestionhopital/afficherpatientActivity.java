@@ -65,8 +65,8 @@ public class afficherpatientActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Patient selected = (Patient) (affichage.getItemAtPosition(i));
-                Toast toast = Toast.makeText(getApplication().getBaseContext(), "nice"+selected.getPrenom()+selected.getCodepostal(), Toast.LENGTH_SHORT);
-                toast.show();
+                //Toast toast = Toast.makeText(getApplication().getBaseContext(), "nice"+selected.getPrenom()+selected.getCodepostal(), Toast.LENGTH_SHORT);
+                //toast.show();
                 Intent afficherlepatient = new Intent(afficherpatientActivity.this,afficherlepatientActivity.class);
                 afficherlepatient.putExtra("patient",selected);
                 startActivity(afficherlepatient);

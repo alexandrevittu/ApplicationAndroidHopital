@@ -41,12 +41,30 @@ switch($methode)
       echo json_encode($unpatient);
     }
     break;
-  case "POST":
+  case "POST" :
 
-    $patient = ajouterpatient($_POST['id'],$_POST['numerosecu'],$_POST['nom'],$_POST['prenom'],$_POST['datenaiss'],$_POST['codepostal'],$_POST['mail'],$_POST['assurer']);
+	   $patient = ajouterpatient($_POST['numerosecu'],$_POST['nom'],$_POST['prenom'],$_POST['datenaiss'],$_POST['codepostal'],$_POST['mail'],$_POST['assurer']);
+	  
+	  
+    break;
+
+  case "PUT":
+
+    parse_str(file_get_contents('php://input'),$_PUT);
+
 
 
     break;
+	case "DELETE":
+
+    parse_str(file_get_contents('php://input'),$_DELETE);
+		suppPatient($_DELETE['id']);
+		echo'delete';
+
+
+    break;
+
+
 }
 
 function connexion(){
@@ -60,6 +78,22 @@ function connexion(){
         echo 'Connexion echoue : '.$e->getMessage();
     }
     return $dbh;
+}
+
+function suppPatient($id)
+{
+	$dbh = connexion();
+	$PdoStatement = $dbh->prepare("DELETE FROM patient where id=:id");
+	$PdoStatement->bindparam('id',$id);
+	 
+	if($PdoStatement->execute()){
+      $PdoStatement->closeCursor();
+      $dbh=null;
+	}
+	else{
+      throw new Exception("Erreur de suppresion de patient");
+	}
+  
 }
 
 function getPatient($id){
@@ -99,10 +133,27 @@ function getLespatients(){
   return $resultat;
 }
 
-function ajouterpatient($id,$numerosecu,$nom,$prenom,$datenaiss,$codepostal,$mail,$assurer){
+function modifierpatient($id,$numerosecu,$nom,$prenom,$datenaiss,$codepostal,$mail,$assurer)
+{
   $dbh=connexion();
-  $PdoStatement=$dbh->prepare("INSERT INTO patient VALUES (:id,:numerosecu,:nom,:prenom,:datenaiss,:codepostal,:mail,:assurer)");
+
+  $PdoStatement=$dbh->prepare("UPDATE patient SET numerosecu=:numerosecu,nom=:nom,prenom=:prenom,datenaiss=:datenaiss,codepostal=:codepostal,mail=:mail,assurer=:assurer WHERE id=:id");
   $PdoStatement->bindvalue("id",$id);
+  $PdoStatement->bindvalue("numerosecu",$numerosecu);
+  $PdoStatement->bindvalue("nom",$nom);
+  $PdoStatement->bindvalue("prenom",$prenom);
+  $PdoStatement->bindvalue("datenaiss",$datenaiss);
+  $PdoStatement->bindvalue("codepostal",$codepostal);
+  $PdoStatement->bindvalue("mail",$mail);
+  $PdoStatement->bindvalue("assurer",$assurer);
+
+}
+
+
+function ajouterpatient($numerosecu,$nom,$prenom,$datenaiss,$codepostal,$mail,$assurer){
+  $dbh=connexion();
+  $PdoStatement=$dbh->prepare("INSERT INTO patient VALUES (NULL,:numerosecu,:nom,:prenom,:datenaiss,:codepostal,:mail,:assurer)");
+
   $PdoStatement->bindvalue("numerosecu",$numerosecu);
   $PdoStatement->bindvalue("nom",$nom);
   $PdoStatement->bindvalue("prenom",$prenom);
