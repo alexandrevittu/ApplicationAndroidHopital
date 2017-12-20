@@ -72,6 +72,7 @@ public class modifierpatientActivity extends AppCompatActivity {
                 maTache.execute(patient1);
                 Toast toast = Toast.makeText(getApplication().getBaseContext(), "le patient a ete modifier", Toast.LENGTH_SHORT);
                 toast.show();
+                finish();
             }
         });
     }

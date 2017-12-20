@@ -207,15 +207,15 @@
 
     <Button
         android:id="@+id/btnvalider"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/txtmail"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/txtmail"
-        android:layout_marginBottom="34dp"
-        android:textColor="#FFFFFF"
-        android:background="#0000FF"
-        android:text="Valider" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:background="#FFFFFF"
+        android:text="Valider"
+
+        android:textColor="#000000" />
 
 
 </RelativeLayout>

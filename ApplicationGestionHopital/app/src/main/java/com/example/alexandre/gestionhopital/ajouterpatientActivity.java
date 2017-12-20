@@ -45,26 +45,54 @@ public class ajouterpatientActivity extends AppCompatActivity {
         btnvalider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nom = txtnom.getText().toString();
-                String prenom = txtprenom.getText().toString();
-                String mail = txtmail.getText().toString();
 
-                //Log.v("test",nom);
-                int codepostal = Integer.parseInt(txtcodepostal.getText().toString());
-                int numsecu = Integer.parseInt(txtnumsecu.getText().toString());
-                int assurer = Integer.parseInt(txtassurer.getText().toString());
-                Date date=new Date();
-                try {
-                    date = sdf.parse(txtdatenaiss.getText().toString());
-                }catch (ParseException e){
+                if(txtnom.getText().toString().equals("") || txtprenom.getText().toString().equals("") || txtmail.getText().toString().equals("") || txtassurer.getText().toString().equals("") || txtcodepostal.getText().toString().equals("") || txtdatenaiss.getText().toString().equals("") || txtnumsecu.getText().toString().equals(""))
+                {
+                    if(txtnom.getText().toString().equals("")){
+                        txtnom.setError("requit !");
+                    }
+                    if(txtprenom.getText().toString().equals("")){
+                        txtprenom.setError("requit !");
+                    }
+                    if(txtmail.getText().toString().equals("")){
+                        txtmail.setError("requit !");
+                    }
+                    if(txtassurer.getText().toString().equals("")){
+                        txtassurer.setError("requit !");
+                    }
+                    if(txtcodepostal.getText().toString().equals("")){
+                        txtcodepostal.setError("requit !");
+                    }
+                    if(txtdatenaiss.getText().toString().equals("")){
+                        txtdatenaiss.setError("requit !");
+                    }
+                    if(txtnumsecu.getText().toString().equals("")){
+                        txtnumsecu.setError("requit !");
+                    }
+
                 }
-                TacheAsync maTache = new TacheAsync();
+                else {
+                    String nom = txtnom.getText().toString();
+                    String prenom = txtprenom.getText().toString();
+                    String mail = txtmail.getText().toString();
 
-                Patient patient1= new  Patient(20,numsecu,nom,prenom,date,codepostal,mail,assurer);
-                maTache.execute(patient1);
-                Toast toast = Toast.makeText(getApplication().getBaseContext(), "le patient a ete ajouter", Toast.LENGTH_SHORT);
-                toast.show();
-                finish();
+                    //Log.v("test",nom);
+                    int codepostal = Integer.parseInt(txtcodepostal.getText().toString());
+                    int numsecu = Integer.parseInt(txtnumsecu.getText().toString());
+                    int assurer = Integer.parseInt(txtassurer.getText().toString());
+                    Date date = new Date();
+                    try {
+                        date = sdf.parse(txtdatenaiss.getText().toString());
+                    } catch (ParseException e) {
+                    }
+                    TacheAsync maTache = new TacheAsync();
+
+                    Patient patient1 = new Patient(20, numsecu, nom, prenom, date, codepostal, mail, assurer);
+                    maTache.execute(patient1);
+                    Toast toast = Toast.makeText(getApplication().getBaseContext(), "le patient a ete ajouter", Toast.LENGTH_SHORT);
+                    toast.show();
+                    finish();
+                }
             }
         });
     }

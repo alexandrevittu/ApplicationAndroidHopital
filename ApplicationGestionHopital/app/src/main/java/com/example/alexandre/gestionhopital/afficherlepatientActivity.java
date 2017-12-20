@@ -78,6 +78,7 @@ public class afficherlepatientActivity extends AppCompatActivity {
                 Intent modifierpatient = new Intent(afficherlepatientActivity.this,modifierpatientActivity.class);
                 modifierpatient.putExtra("patient",lepatient);
                 startActivity(modifierpatient);
+                finish();
             }
         });
 
