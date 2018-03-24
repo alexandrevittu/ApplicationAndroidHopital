@@ -21,7 +21,9 @@
         <activity android:name=".afficherpatientActivity" />
         <activity android:name=".ajouterpatientActivity" />
         <activity android:name=".afficherlepatientActivity" />
-        <activity android:name=".modifierpatientActivity"></activity>
+        <activity android:name=".modifierpatientActivity" />
+        <activity android:name=".affichersejoursActivity" />
+        <activity android:name=".detailsejourActivity"></activity>
     </application>
 
 </manifest>

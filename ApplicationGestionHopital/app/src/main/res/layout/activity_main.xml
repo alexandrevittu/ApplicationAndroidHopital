@@ -36,5 +36,19 @@
         android:background="#0000FF"
         android:text="Ajouter patient" />
 
+    <Button
+        android:id="@+id/btnaffichersejours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnajouterpatient"
+        android:layout_alignLeft="@+id/btnajouterpatient"
+        android:layout_alignRight="@+id/btnajouterpatient"
+        android:layout_alignStart="@+id/btnajouterpatient"
+        android:layout_below="@+id/btnajouterpatient"
+        android:layout_marginTop="21dp"
+        android:background="#0000FF"
+        android:text="Afficher les sejours"
+        android:textColor="#FFFFFF" />
+
 
 </RelativeLayout>

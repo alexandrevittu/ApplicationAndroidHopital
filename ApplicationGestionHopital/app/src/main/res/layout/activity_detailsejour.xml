@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.alexandre.gestionhopital.detailsejourActivity">
+
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radiobtnoui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="oui"
+
+            />
+        <RadioButton
+            android:id="@+id/radiobtnnon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="non"
+            />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btntest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radiogroup"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="39dp"
+        android:layout_toEndOf="@+id/radiogroup"
+        android:layout_toRightOf="@+id/radiogroup"
+        android:text="Button" />
+
+    <TextView
+        android:id="@+id/textViewtest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btntest"
+        android:layout_alignStart="@+id/btntest"
+        android:layout_below="@+id/btntest"
+        android:layout_marginTop="52dp"
+        android:text="" />
+
+
+</RelativeLayout>

@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnafficherpatient = (Button)findViewById(R.id.btnafficherpatient);
         Button btnajouterpatient = (Button)findViewById(R.id.btnajouterpatient);
+        Button btnaffichersjours = (Button)findViewById(R.id.btnaffichersejours);
 
         btnafficherpatient.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent ajouterpatientIntent = new Intent(MainActivity.this,ajouterpatientActivity.class);
+                startActivity(ajouterpatientIntent);
+            }
+        });
+
+        btnaffichersjours.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ajouterpatientIntent = new Intent(MainActivity.this,affichersejoursActivity.class);
                 startActivity(ajouterpatientIntent);
             }
         });
