@@ -2,12 +2,15 @@ package com.example.alexandre.gestionhopital;
 
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.io.BufferedInputStream;
@@ -38,15 +41,21 @@ public class ajouterpatientActivity extends AppCompatActivity {
         final EditText txtdatenaiss = (EditText)findViewById(R.id.edittxtdatenaiss);
         final EditText txtcodepostal = (EditText)findViewById(R.id.edittxtcodepostal);
         final EditText txtmail = (EditText)findViewById(R.id.edittxtmail);
-        final EditText txtassurer = (EditText)findViewById(R.id.edittxtassurer);
+        //final EditText txtassurer = (EditText)findViewById(R.id.edittxtassurer);
         Button btnvalider = (Button)findViewById(R.id.btnvalider);
+        final RadioButton radiobtnoui = (RadioButton)(findViewById(R.id.radiobtnoui));
+        final RadioButton radiobtnnon = (RadioButton)(findViewById(R.id.radiobtnnon));
+        radiobtnoui.setId(1);
+        radiobtnnon.setId(0);
+        final RadioGroup rg =(RadioGroup)(findViewById(R.id.radiogroup));
+
 
 
         btnvalider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(txtnom.getText().toString().equals("") || txtprenom.getText().toString().equals("") || txtmail.getText().toString().equals("") || txtassurer.getText().toString().equals("") || txtcodepostal.getText().toString().equals("") || txtdatenaiss.getText().toString().equals("") || txtnumsecu.getText().toString().equals(""))
+                if(txtnom.getText().toString().equals("") || txtprenom.getText().toString().equals("") || txtmail.getText().toString().equals("") || rg.getCheckedRadioButtonId()==-1 || txtcodepostal.getText().toString().equals("") || txtdatenaiss.getText().toString().equals("") || txtnumsecu.getText().toString().equals(""))
                 {
                     if(txtnom.getText().toString().equals("")){
                         txtnom.setError("requit !");
@@ -57,8 +66,9 @@ public class ajouterpatientActivity extends AppCompatActivity {
                     if(txtmail.getText().toString().equals("")){
                         txtmail.setError("requit !");
                     }
-                    if(txtassurer.getText().toString().equals("")){
-                        txtassurer.setError("requit !");
+                    if(rg.getCheckedRadioButtonId()==-1){
+                        radiobtnoui.setError("requit !");
+                        radiobtnnon.setError("requit !");
                     }
                     if(txtcodepostal.getText().toString().equals("")){
                         txtcodepostal.setError("requit !");
@@ -79,7 +89,7 @@ public class ajouterpatientActivity extends AppCompatActivity {
                     //Log.v("test",nom);
                     int codepostal = Integer.parseInt(txtcodepostal.getText().toString());
                     int numsecu = Integer.parseInt(txtnumsecu.getText().toString());
-                    int assurer = Integer.parseInt(txtassurer.getText().toString());
+                    //int assurer = Integer.parseInt(txtassurer.getText().toString());
                     Date date = new Date();
                     try {
                         date = sdf.parse(txtdatenaiss.getText().toString());
@@ -87,7 +97,7 @@ public class ajouterpatientActivity extends AppCompatActivity {
                     }
                     TacheAsync maTache = new TacheAsync();
 
-                    Patient patient1 = new Patient(20, numsecu, nom, prenom, date, codepostal, mail, assurer);
+                    Patient patient1 = new Patient(20, numsecu, nom, prenom, date, codepostal, mail, rg.getCheckedRadioButtonId());
                     maTache.execute(patient1);
                     Toast toast = Toast.makeText(getApplication().getBaseContext(), "le patient a ete ajouter", Toast.LENGTH_SHORT);
                     toast.show();

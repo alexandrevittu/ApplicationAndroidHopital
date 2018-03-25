@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundappli"
 
     tools:context="com.example.alexandre.gestionhopital.ajouterpatientActivity">
 
@@ -19,7 +18,6 @@
         android:text="Saisir votre nom :"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="54dp"
-        android:textColor="#FFFFFF"
 
         />
 
@@ -34,7 +32,6 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
-        android:textColor="#FFFFFF"
 
         tools:layout_editor_absoluteX="94dp"
         tools:layout_editor_absoluteY="52dp" />
@@ -46,7 +43,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/txtnom"
-        android:textColor="#FFFFFF"
 
         android:layout_marginTop="19dp"
         android:text="Saisir votre prenom :"
@@ -62,7 +58,6 @@
         android:layout_toEndOf="@+id/txtprenom"
         android:layout_toRightOf="@+id/txtprenom"
         android:ems="10"
-        android:textColor="#FFFFFF"
         android:inputType="textPersonName"
         android:text=""
         tools:layout_editor_absoluteX="94dp"
@@ -71,7 +66,6 @@
     <TextView
         android:id="@+id/txtnumsecu"
         android:layout_width="wrap_content"
-        android:textColor="#FFFFFF"
         android:layout_height="37dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -90,7 +84,6 @@
         android:layout_toRightOf="@+id/txtnumsecu"
         android:ems="10"
         android:inputType="number"
-        android:textColor="#FFFFFF"
         android:text=""
         tools:layout_editor_absoluteX="94dp"
         tools:layout_editor_absoluteY="52dp" />
@@ -103,7 +96,6 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edittxtnumsecu"
         android:layout_marginTop="20dp"
-        android:textColor="#FFFFFF"
         android:text="Saisir votre date de naissance :"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="54dp" />
@@ -115,7 +107,6 @@
         android:layout_alignBaseline="@+id/txtdatenaiss"
         android:layout_alignBottom="@+id/txtdatenaiss"
         android:layout_toEndOf="@+id/txtdatenaiss"
-        android:textColor="#FFFFFF"
         android:layout_toRightOf="@+id/txtdatenaiss"
         android:ems="10"
         android:inputType="datetime"
@@ -133,7 +124,6 @@
         android:layout_marginTop="15dp"
         android:text="Saisir votre codepostal :"
         tools:layout_editor_absoluteX="25dp"
-        android:textColor="#FFFFFF"
         tools:layout_editor_absoluteY="54dp" />
 
     <EditText
@@ -145,7 +135,6 @@
         android:layout_toEndOf="@+id/txtcodepostal"
         android:layout_toRightOf="@+id/txtcodepostal"
         android:ems="10"
-        android:textColor="#FFFFFF"
         android:inputType="number"
         android:text=""
         tools:layout_editor_absoluteX="94dp"
@@ -159,7 +148,6 @@
         android:layout_alignBottom="@+id/edittxtmail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textColor="#FFFFFF"
         android:text="Saisir votre mail :"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="54dp" />
@@ -172,7 +160,6 @@
         android:layout_toEndOf="@+id/txtmail"
         android:layout_toRightOf="@+id/txtmail"
         android:ems="10"
-        android:textColor="#FFFFFF"
         android:inputType="textEmailAddress"
         android:text=""
         tools:layout_editor_absoluteX="94dp"
@@ -186,24 +173,11 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/txtmail"
         android:layout_marginTop="12dp"
-        android:textColor="#FFFFFF"
-        android:text="Saisir si vous ete assurer ou non :"
+        android:text="Êtes-vous assuré :"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="54dp" />
 
-    <EditText
-        android:id="@+id/edittxtassurer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edittxtmail"
-        android:layout_toEndOf="@+id/txtasurer"
-        android:layout_toRightOf="@+id/txtasurer"
-        android:ems="10"
-        android:textColor="#FFFFFF"
-        android:inputType="number"
-        android:text=""
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="52dp" />
+
 
     <Button
         android:id="@+id/btnvalider"
@@ -212,10 +186,35 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
-        android:background="#FFFFFF"
         android:text="Valider"
 
-        android:textColor="#000000" />
+     />
+
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtmail"
+        android:layout_marginLeft="150dp"
+
+        >
+
+        <RadioButton
+            android:id="@+id/radiobtnoui"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="oui"
+
+            />
+        <RadioButton
+            android:id="@+id/radiobtnnon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="non"
+            />
+    </RadioGroup>
+
+
 
 
 </RelativeLayout>

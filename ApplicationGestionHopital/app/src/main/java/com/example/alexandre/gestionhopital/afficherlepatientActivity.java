@@ -29,7 +29,7 @@ public class afficherlepatientActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_afficherlepatient);
         Intent i = getIntent();
@@ -50,7 +50,14 @@ public class afficherlepatientActivity extends AppCompatActivity {
         txtviewmail.setText("mail : "+lepatient.getMail());
         txtviewcodepostal.setText("code postal : "+lepatient.getCodepostal());
         txtviewnumsecu.setText("numero de securité social : "+lepatient.getNumsecu());
-        txtviewassurer.setText("assurer : "+lepatient.getAssurer());
+
+        if(lepatient.getAssurer() == 1)
+        {
+            txtviewassurer.setText("assurer : oui");
+        }else{
+            txtviewassurer.setText("assurer : non");
+        }
+
         lepatient.getId();
         Button btnsupp = (Button)findViewById(R.id.btnsupppatient);
         btnsupp.setOnClickListener(new View.OnClickListener() {
