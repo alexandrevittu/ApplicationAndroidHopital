@@ -14,6 +14,18 @@ switch($methode)
 
 
     }
+    break;
+
+  case "PUT":
+
+    parse_str(file_get_contents('php://input'),$_PUT);
+    if(isset($_PUT['validerentree']) && isset($_PUT['idpatient']))
+    {
+      ModifentreePatient($_PUT['id'],$_PUT['entree']);
+    }
+
+    break;
+
 }
 
 function connexion(){
@@ -45,6 +57,25 @@ function getLessejours(){
         throw new Exception("Erreur recupération sejours");
       }
   return $resultat;
+}
+
+function ModifentreePatient($idPatient,$idSejours)
+{
+  $dbh = connexion();
+
+  $pdoStatement = $dbh->prepare("UPDATE sejours set ValiderEntree=:validerentree WHERE patient_id=:id");
+  $PdoStatement->bindvalue("id",$idPatient);
+  $PdoStatement->bindvalue("validerentree",$idSejours);
+
+  if($PdoStatement->execute()){
+    $PdoStatement->closeCursor();
+    $dbh=null;
+  }
+  else{
+      throw new Exception("Erreur modification du sejours");
+    }
+
+
 }
 
  ?>
