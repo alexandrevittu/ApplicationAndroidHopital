@@ -49,7 +49,7 @@ public class affichersejoursActivity extends AppCompatActivity {
             for(int i = 0; i < tous.length(); i++)
             {
                 lobjet = tous.getJSONObject(i);
-                lesejours = new Sejours(lobjet.getInt("id"), sdf.parse(lobjet.getString("datedebut")),sdf.parse(lobjet.getString("datefin")),lobjet.getString("nom"),lobjet.getString("prenom"),lobjet.getInt("id"),lobjet.getInt("numlit"));
+                lesejours = new Sejours(lobjet.getInt("id"), sdf.parse(lobjet.getString("datedebut")),sdf.parse(lobjet.getString("datefin")),lobjet.getString("nom"),lobjet.getString("prenom"),lobjet.getInt("id"),lobjet.getInt("numlit"),0,0);
                 //if (dateactuel.before(lesejours.getDatedebut()) || dateactuel.equals(lesejours.getDatedebut())) {
                         //aAfficher += "\n" + lesejours.toString();
                         lessejours.add(lesejours);

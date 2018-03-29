@@ -11,15 +11,54 @@ import java.util.Date;
 
 public class Sejours implements Serializable {
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
+    public int getId() {
+        return id;
+    }
+
     int id;
     Date datedebut;
+
+    public Date getDatefin() {
+        return datefin;
+    }
+
     Date datefin;
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public int getNumchambre() {
+        return numchambre;
+    }
+
+    public int getNumlit() {
+        return numlit;
+    }
+
     String nom;
     String prenom;
     int numchambre;
     int numlit;
 
-    public Sejours(int Pid,Date Pdatedebut, Date Pdatefin,String Pnom,String Pprenom,int Pnumchambre, int Pnumlit)
+    public int getValideRentree() {
+        return ValideRentree;
+    }
+
+    int ValideRentree;
+
+    public int getValiderSortie() {
+        return ValiderSortie;
+    }
+
+    int ValiderSortie;
+
+    public Sejours(int Pid,Date Pdatedebut, Date Pdatefin,String Pnom,String Pprenom,int Pnumchambre, int Pnumlit,int Pvaliderentree,int Pvalidersortie)
     {
         id = Pid;
         datedebut = Pdatedebut;
@@ -28,6 +67,8 @@ public class Sejours implements Serializable {
         prenom = Pprenom;
         numchambre = Pnumchambre;
         numlit = Pnumlit;
+        ValideRentree = Pvaliderentree;
+        ValiderSortie = Pvalidersortie;
     }
 
     public String toString() {

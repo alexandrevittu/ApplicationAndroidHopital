@@ -6,47 +6,111 @@
     android:layout_height="match_parent"
     tools:context="com.example.alexandre.gestionhopital.detailsejourActivity">
 
+
+    <Button
+        android:id="@+id/btnValider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="38dp"
+        android:layout_toEndOf="@+id/txtdatefinsejours"
+        android:layout_toRightOf="@+id/txtdatefinsejours"
+        android:text="Valider" />
+
+    <TextView
+        android:id="@+id/txtnomsejours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="29dp"
+        android:text="nom :" />
+
+    <TextView
+        android:id="@+id/txtprenomsejours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtnomsejours"
+        android:layout_alignStart="@+id/txtnomsejours"
+        android:layout_below="@+id/txtnomsejours"
+        android:layout_marginTop="14dp"
+        android:text="Prenom :" />
+
+    <TextView
+        android:id="@+id/txtdatedebutsejours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtprenomsejours"
+        android:layout_alignStart="@+id/txtprenomsejours"
+        android:layout_below="@+id/txtprenomsejours"
+        android:layout_marginTop="21dp"
+        android:text="date debut de sejours :" />
+
+    <TextView
+        android:id="@+id/txtdatefinsejours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtdatedebutsejours"
+        android:layout_alignStart="@+id/txtdatedebutsejours"
+        android:layout_below="@+id/txtdatedebutsejours"
+        android:layout_marginTop="23dp"
+        android:text="date fin de sejours :" />
+
+    <TextView
+        android:id="@+id/txtnumlit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtchambre"
+        android:layout_alignStart="@+id/txtchambre"
+        android:layout_below="@+id/txtchambre"
+        android:layout_marginTop="21dp"
+        android:text="numero du lit :" />
+
+    <TextView
+        android:id="@+id/txtchambre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtdatefinsejours"
+        android:layout_alignStart="@+id/txtdatefinsejours"
+        android:layout_below="@+id/txtdatefinsejours"
+        android:layout_marginTop="23dp"
+        android:text="numero de chambre :" />
+
+    <TextView
+        android:id="@+id/txtvaliderentree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtnumlit"
+        android:layout_alignStart="@+id/txtnumlit"
+        android:layout_below="@+id/txtnumlit"
+        android:layout_marginTop="44dp"
+        android:text="Valider l'arriver du patient :" />
+
     <RadioGroup
         android:id="@+id/radiogroup"
         android:layout_width="wrap_content"
+        android:layout_below="@+id/txtvaliderentree"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="28dp"
         android:layout_height="wrap_content">
 
         <RadioButton
             android:id="@+id/radiobtnoui"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="oui"
-
             />
+
         <RadioButton
             android:id="@+id/radiobtnnon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="non"
-            />
+            android:text="non" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/btntest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/radiogroup"
-        android:layout_marginLeft="39dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="39dp"
-        android:layout_toEndOf="@+id/radiogroup"
-        android:layout_toRightOf="@+id/radiogroup"
-        android:text="Button" />
-
-    <TextView
-        android:id="@+id/textViewtest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btntest"
-        android:layout_alignStart="@+id/btntest"
-        android:layout_below="@+id/btntest"
-        android:layout_marginTop="52dp"
-        android:text="" />
 
 
 </RelativeLayout>
