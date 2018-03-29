@@ -90,7 +90,7 @@
         android:text="Valider l'arriver du patient :" />
 
     <RadioGroup
-        android:id="@+id/radiogroup"
+        android:id="@+id/radiogroupvaliderentree"
         android:layout_width="wrap_content"
         android:layout_below="@+id/txtvaliderentree"
         android:layout_marginTop="10dp"
@@ -98,14 +98,14 @@
         android:layout_height="wrap_content">
 
         <RadioButton
-            android:id="@+id/radiobtnoui"
+            android:id="@+id/radiobtnouivaliderentree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="oui"
             />
 
         <RadioButton
-            android:id="@+id/radiobtnnon"
+            android:id="@+id/radiobtnnonvaliderentree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="non" />

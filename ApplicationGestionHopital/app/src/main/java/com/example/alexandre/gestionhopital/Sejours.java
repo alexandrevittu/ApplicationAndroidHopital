@@ -73,7 +73,7 @@ public class Sejours implements Serializable {
 
     public String toString() {
 
-        return "Date de debut : "+sdf.format(datedebut)+ "\ndate de fin : "+sdf.format(datedebut)+"\nPatient : "+nom+" "+prenom+"\nNumero de chambre : "+numchambre;
+        return "Date de debut : "+sdf.format(datedebut)+ "\ndate de fin : "+sdf.format(datefin)+"\nPatient : "+nom+" "+prenom+"\nNumero de chambre : "+numchambre;
     }
 
     public Date getDatedebut(){ return datedebut;}

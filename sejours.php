@@ -19,10 +19,10 @@ switch($methode)
   case "PUT":
 
     parse_str(file_get_contents('php://input'),$_PUT);
-    if(isset($_PUT['validerentree']) && isset($_PUT['idpatient']))
-    {
-      ModifentreePatient($_PUT['id'],$_PUT['entree']);
-    }
+    //if(isset($_PUT['Validerentree']) && isset($_PUT['idsejours']))
+    //{
+    ModifentreePatient($_PUT['Validerentree'],$_PUT['idsejours']);
+    //}
 
     break;
 
@@ -45,7 +45,7 @@ function getLessejours(){
 
   $dbh = connexion();
 
-  $pdoStatement = $dbh->prepare("SELECT sejours.id,sejours.datedebut,sejours.datefin,patient.nom,patient.prenom,chambre.id,numlit FROM sejours join patient on sejours.patient_id = patient.id JOIN chambre ON sejours.leschambres_id = chambre.id WHERE datedebut >= date(NOW()) GROUP BY datedebut");
+  $pdoStatement = $dbh->prepare("SELECT sejours.id,sejours.datedebut,sejours.datefin,patient.nom,patient.prenom,chambre.id as numchambre,numlit,Validerentree,Validersortie FROM sejours join patient on sejours.patient_id = patient.id JOIN chambre ON sejours.leschambres_id = chambre.id WHERE datefin >= date(NOW()) GROUP BY datedebut");
 
     if($pdoStatement->execute()){
 
@@ -59,13 +59,15 @@ function getLessejours(){
   return $resultat;
 }
 
-function ModifentreePatient($idPatient,$idSejours)
+function ModifentreePatient($Validerentree,$idsejours)
 {
   $dbh = connexion();
 
-  $pdoStatement = $dbh->prepare("UPDATE sejours set ValiderEntree=:validerentree WHERE patient_id=:id");
-  $PdoStatement->bindvalue("id",$idPatient);
-  $PdoStatement->bindvalue("validerentree",$idSejours);
+  $pdoStatement = $dbh->prepare("UPDATE sejours SET Validerentree=:Validerentree WHERE id=:idsejours");
+
+  $PdoStatement->bindvalue("Validerentree",$Validerentree);
+  $PdoStatement->bindvalue("idsejours",$idsejours);
+
 
   if($PdoStatement->execute()){
     $PdoStatement->closeCursor();
