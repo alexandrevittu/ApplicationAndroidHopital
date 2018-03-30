@@ -54,7 +54,12 @@ public class affichersejoursActivity extends AppCompatActivity {
                 lesejours = new Sejours(lobjet.getInt("id"), datedebut,datefin,lobjet.getString("nom"),lobjet.getString("prenom"),lobjet.getInt("numchambre"),lobjet.getInt("numlit"),lobjet.getInt("Validerentree"),lobjet.getInt("Validersortie"));
                 //if (dateactuel.before(lesejours.getDatedebut()) || dateactuel.equals(lesejours.getDatedebut())) {
                         //aAfficher += "\n" + lesejours.toString();
+                if(lesejours.getValiderSortie() == 1)
+                {
+
+                }else{
                         lessejours.add(lesejours);
+                }
                 //}
 
             }

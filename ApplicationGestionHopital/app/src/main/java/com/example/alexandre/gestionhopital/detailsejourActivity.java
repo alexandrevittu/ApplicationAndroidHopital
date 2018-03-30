@@ -45,6 +45,7 @@ public class detailsejourActivity extends AppCompatActivity {
         TextView txtdatefin = (TextView)findViewById(R.id.txtdatefinsejours);
         final TextView txtnumlit = (TextView)findViewById(R.id.txtnumlit);
         TextView txtnumchambre =(TextView)findViewById(R.id.txtchambre);
+        TextView txtvalider = (TextView)findViewById(R.id.txtvaliderentree);
         final RadioButton RadioValiderentreeOui = (RadioButton)findViewById(R.id.radiobtnouivaliderentree);
         final RadioButton RadioValiderentreenon = (RadioButton)findViewById(R.id.radiobtnnonvaliderentree);
         RadioValiderentreenon.setId(0);
@@ -57,11 +58,10 @@ public class detailsejourActivity extends AppCompatActivity {
         txtnumchambre.setText("Numero de la chambre : "+lesejour.getNumchambre());
         txtnumlit.setText("Numero du lit : "+lesejour.getNumlit());
 
-        if(lesejour.getValideRentree() == 0)
+        if(lesejour.getValideRentree() == 1)
         {
+            txtvalider.setText("Valider la sortie du patient :");
         }
-        txtnumlit.setText(String.valueOf(lesejour.getValideRentree()));
-        txtnumchambre.setText(String.valueOf(lesejour.getId()));
 
 
         Button btntest = (Button) (findViewById(R.id.btnValider));
@@ -69,15 +69,23 @@ public class detailsejourActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-                    TacheAsync TacheValiderEntree = new TacheAsync();
-                    Sejours SejoursValiderEntree = new Sejours(lesejour.getId(),lesejour.getDatedebut(),lesejour.getDatefin(),lesejour.getNom(),lesejour.getPrenom(),lesejour.getNumchambre(),lesejour.getNumlit(),rg.getCheckedRadioButtonId(),lesejour.getValiderSortie());
-                    TacheValiderEntree.execute(SejoursValiderEntree);
-                    Toast toast = Toast.makeText(getApplication().getBaseContext(), "l'arrive du patient a bien été pris en compte", Toast.LENGTH_SHORT);
-                    toast.show();
-                    finish();
-                    txtnumlit.setText(String.valueOf(SejoursValiderEntree.getId()));
-
+                    if(lesejour.getValideRentree() == 0) {
+                        TacheAsync TacheValiderEntree = new TacheAsync();
+                        Sejours SejoursValiderEntree = new Sejours(lesejour.getId(), lesejour.getDatedebut(), lesejour.getDatefin(), lesejour.getNom(), lesejour.getPrenom(), lesejour.getNumchambre(), lesejour.getNumlit(), rg.getCheckedRadioButtonId(), lesejour.getValiderSortie());
+                        TacheValiderEntree.execute(SejoursValiderEntree);
+                        Toast toast = Toast.makeText(getApplication().getBaseContext(), "l'arrive du patient a bien été pris en compte", Toast.LENGTH_SHORT);
+                        toast.show();
+                        finish();
+                    }
+                    if(lesejour.getValideRentree() == 1)
+                    {
+                        TacheAsyncValidersortie TacheValiderSortie = new TacheAsyncValidersortie();
+                        Sejours SejoursSortieEntree = new Sejours(lesejour.getId(), lesejour.getDatedebut(), lesejour.getDatefin(), lesejour.getNom(), lesejour.getPrenom(), lesejour.getNumchambre(), lesejour.getNumlit(), lesejour.getValideRentree(), rg.getCheckedRadioButtonId());
+                        TacheValiderSortie.execute(SejoursSortieEntree);
+                        Toast toast = Toast.makeText(getApplication().getBaseContext(), "la sortie du patient a bien été pris en compte", Toast.LENGTH_SHORT);
+                        toast.show();
+                        finish();
+                    }
 
 
             }
@@ -101,14 +109,79 @@ public class detailsejourActivity extends AppCompatActivity {
 
                 Uri.Builder builder =new Uri.Builder();
                 builder.appendQueryParameter("idsejours",String.valueOf(arg0[0].getId()));
-                builder.appendQueryParameter("Datedebut",sdf.format(arg0[0].getDatedebut()));
-                builder.appendQueryParameter("Datefin",sdf.format(arg0[0].getDatefin()));
-                builder.appendQueryParameter("nom",String.valueOf(arg0[0].getNom()));
-                builder.appendQueryParameter("prenom",String.valueOf(arg0[0].getPrenom()));
-                builder.appendQueryParameter("numchambre",String.valueOf(arg0[0].getNumchambre()));
-                builder.appendQueryParameter("numlit",String.valueOf(arg0[0].getNumlit()));
-                builder.appendQueryParameter("Validerentree",String.valueOf(arg0[0].getValideRentree()));
-                builder.appendQueryParameter("Validesortie",String.valueOf(arg0[0].getValiderSortie()));
+                //builder.appendQueryParameter("Datedebut",sdf.format(arg0[0].getDatedebut()));
+                //builder.appendQueryParameter("Datefin",sdf.format(arg0[0].getDatefin()));
+                //builder.appendQueryParameter("nom",String.valueOf(arg0[0].getNom()));
+                //builder.appendQueryParameter("prenom",String.valueOf(arg0[0].getPrenom()));
+                //builder.appendQueryParameter("numchambre",String.valueOf(arg0[0].getNumchambre()));
+                //builder.appendQueryParameter("numlit",String.valueOf(arg0[0].getNumlit()));
+                builder.appendQueryParameter("validerentree",String.valueOf(arg0[0].getValideRentree()));
+                //builder.appendQueryParameter("Validesortie",String.valueOf(arg0[0].getValiderSortie()));
+
+
+
+                String query = builder.build().getEncodedQuery();
+                OutputStream outputPost = conn.getOutputStream();
+                BufferedWriter writer =  new BufferedWriter(new OutputStreamWriter(outputPost,"UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                outputPost.close();
+                conn.connect();
+                int codeResponse= conn.getResponseCode();
+
+                if(codeResponse == HttpURLConnection.HTTP_OK){
+                    InputStream lefluxentree = new BufferedInputStream(conn.getInputStream());
+                    BufferedReader lelecteur = new BufferedReader(new InputStreamReader(lefluxentree));
+                    String laligne=lelecteur.readLine();
+                    while(laligne!=null){
+                        leBuffer.append(laligne);
+                        leBuffer.append("\n");
+                        laligne=lelecteur.readLine();
+                    }
+                    aRetourner = leBuffer.toString();
+                }
+                else{
+                    aRetourner="erreur";
+                }
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+            return aRetourner;
+
+        }
+
+        protected void onProgressUpdate(Integer... pAvancement) {
+        }
+
+    }
+
+    public class TacheAsyncValidersortie extends AsyncTask<Sejours, Integer, String> {
+
+        protected String doInBackground(Sejours... arg0) {
+            String aRetourner ="";
+            //aRetourner=arg0[0].getNom();
+            StringBuffer leBuffer = new StringBuffer(aRetourner);
+            URL url;
+            try {
+
+                url = new URL("http://10.0.2.2/serviceweb/sejours.php");
+                HttpURLConnection conn =(HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("PUT");
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+
+                Uri.Builder builder =new Uri.Builder();
+                builder.appendQueryParameter("idsejours",String.valueOf(arg0[0].getId()));
+                //builder.appendQueryParameter("Datedebut",sdf.format(arg0[0].getDatedebut()));
+                //builder.appendQueryParameter("Datefin",sdf.format(arg0[0].getDatefin()));
+                //builder.appendQueryParameter("nom",String.valueOf(arg0[0].getNom()));
+                //builder.appendQueryParameter("prenom",String.valueOf(arg0[0].getPrenom()));
+                //builder.appendQueryParameter("numchambre",String.valueOf(arg0[0].getNumchambre()));
+                //builder.appendQueryParameter("numlit",String.valueOf(arg0[0].getNumlit()));
+                //builder.appendQueryParameter("validerentree",String.valueOf(arg0[0].getValideRentree()));
+                builder.appendQueryParameter("validesortie",String.valueOf(arg0[0].getValiderSortie()));
 
 
 

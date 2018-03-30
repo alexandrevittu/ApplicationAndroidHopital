@@ -11,18 +11,20 @@ switch($methode)
     }
     else
     {
-
-
     }
     break;
 
   case "PUT":
 
     parse_str(file_get_contents('php://input'),$_PUT);
-    //if(isset($_PUT['Validerentree']) && isset($_PUT['idsejours']))
-    //{
-    ModifentreePatient($_PUT['Validerentree'],$_PUT['idsejours']);
-    //}
+    if(isset($_PUT['validerentree']) && isset($_PUT['idsejours']))
+    {
+    ModifentreePatient($_PUT['validerentree'],$_PUT['idsejours']);
+    }
+    if(isset($_PUT['validesortie']) && isset($_PUT['idsejours']))
+    {
+      ModifSortiePatient($_PUT['validesortie'],$_PUT['idsejours']);
+    }
 
     break;
 
@@ -63,7 +65,7 @@ function ModifentreePatient($Validerentree,$idsejours)
 {
   $dbh = connexion();
 
-  $pdoStatement = $dbh->prepare("UPDATE sejours SET Validerentree=:Validerentree WHERE id=:idsejours");
+  $PdoStatement = $dbh->prepare("UPDATE sejours SET Validerentree=:Validerentree WHERE id=:idsejours");
 
   $PdoStatement->bindvalue("Validerentree",$Validerentree);
   $PdoStatement->bindvalue("idsejours",$idsejours);
@@ -77,6 +79,24 @@ function ModifentreePatient($Validerentree,$idsejours)
       throw new Exception("Erreur modification du sejours");
     }
 
+}
+function ModifSortiePatient($Validersortie,$idsejours)
+{
+  $dbh = connexion();
+
+  $PdoStatement = $dbh->prepare("UPDATE sejours SET Validersortie=:Validersortie WHERE id=:idsejours");
+
+  $PdoStatement->bindvalue("Validersortie",$Validersortie);
+  $PdoStatement->bindvalue("idsejours",$idsejours);
+
+
+  if($PdoStatement->execute()){
+    $PdoStatement->closeCursor();
+    $dbh=null;
+  }
+  else{
+      throw new Exception("Erreur modification du sejours");
+    }
 
 }
 
