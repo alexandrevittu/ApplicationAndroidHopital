@@ -109,7 +109,8 @@
         android:layout_toEndOf="@+id/txtdatenaiss"
         android:layout_toRightOf="@+id/txtdatenaiss"
         android:ems="10"
-        android:inputType="datetime"
+        android:editable="false"
+        android:onClick="setDate"
         android:text=""
         tools:layout_editor_absoluteX="94dp"
         tools:layout_editor_absoluteY="52dp" />
@@ -213,8 +214,6 @@
             android:text="non"
             />
     </RadioGroup>
-
-
 
 
 </RelativeLayout>

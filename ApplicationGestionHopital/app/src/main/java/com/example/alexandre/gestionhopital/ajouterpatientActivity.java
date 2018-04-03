@@ -1,5 +1,8 @@
 package com.example.alexandre.gestionhopital;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
@@ -8,9 +11,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedInputStream;
@@ -25,20 +30,33 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class ajouterpatientActivity extends AppCompatActivity {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private Calendar calendar;
+    private int year, month, day;
+    private EditText txtdatenaiss;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajouterpatient);
+        Locale locale = new Locale("FR");
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getApplicationContext().getResources().updateConfiguration(config, null);
 
 
         final EditText txtnom = (EditText)findViewById(R.id.edittxtnom);
         final EditText txtprenom = (EditText)findViewById(R.id.edittxtprenom);
         final EditText txtnumsecu = (EditText)findViewById(R.id.edittxtnumsecu);
-        final EditText txtdatenaiss = (EditText)findViewById(R.id.edittxtdatenaiss);
+        txtdatenaiss = (EditText)findViewById(R.id.edittxtdatenaiss);
         final EditText txtcodepostal = (EditText)findViewById(R.id.edittxtcodepostal);
         final EditText txtmail = (EditText)findViewById(R.id.edittxtmail);
         //final EditText txtassurer = (EditText)findViewById(R.id.edittxtassurer);
@@ -48,6 +66,11 @@ public class ajouterpatientActivity extends AppCompatActivity {
         radiobtnoui.setId(1);
         radiobtnnon.setId(0);
         final RadioGroup rg =(RadioGroup)(findViewById(R.id.radiogroup));
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
 
 
 
@@ -116,7 +139,7 @@ public class ajouterpatientActivity extends AppCompatActivity {
             URL url;
             try {
 
-                url = new URL("http://10.0.2.2/serviceweb/rest.php");
+                url = new URL("http://192.168.1.13/serviceweb/rest.php");
                 HttpURLConnection conn =(HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setDoInput(true);
@@ -169,5 +192,31 @@ public class ajouterpatientActivity extends AppCompatActivity {
     }
 
 
-
+    public void setDate(View view) {
+        showDialog(999);
+    }
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        if(id==999)
+        {
+            return new DatePickerDialog(this,myDateListener,year, month, day);
+        }
+        return null;
+    }
+    private DatePickerDialog.OnDateSetListener myDateListener = new
+            DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker arg0,
+                                      int arg1, int arg2, int arg3) {
+                    // TODO Auto-generated method stub
+                    // arg1 = year
+                    // arg2 = month
+                    // arg3 = day
+                    showDate(arg1, arg2+1, arg3);
+                }
+            };
+    private void showDate(int year, int month, int day) {
+        txtdatenaiss.setText(new StringBuilder().append(year).append("-")
+                .append(month).append("-").append(day));
+    }
 }

@@ -101,7 +101,7 @@ public class detailsejourActivity extends AppCompatActivity {
             URL url;
             try {
 
-                url = new URL("http://10.0.2.2/serviceweb/sejours.php");
+                url = new URL("http://192.168.1.13/serviceweb/sejours.php");
                 HttpURLConnection conn =(HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("PUT");
                 conn.setDoInput(true);
@@ -166,7 +166,7 @@ public class detailsejourActivity extends AppCompatActivity {
             URL url;
             try {
 
-                url = new URL("http://10.0.2.2/serviceweb/sejours.php");
+                url = new URL("http://192.168.1.13/serviceweb/sejours.php");
                 HttpURLConnection conn =(HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("PUT");
                 conn.setDoInput(true);

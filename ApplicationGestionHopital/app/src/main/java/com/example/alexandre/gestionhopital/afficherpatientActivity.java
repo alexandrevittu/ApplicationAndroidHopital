@@ -84,7 +84,7 @@ public class afficherpatientActivity extends AppCompatActivity {
 
 
             try {
-                url = new URL("http://10.0.2.2/serviceweb/rest.php?method=GET");
+                url = new URL("http://192.168.1.13/serviceweb/rest.php?method=GET");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
 

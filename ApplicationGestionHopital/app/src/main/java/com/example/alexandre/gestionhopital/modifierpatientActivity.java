@@ -86,7 +86,7 @@ public class modifierpatientActivity extends AppCompatActivity {
             URL url;
             try {
 
-                url = new URL("http://10.0.2.2/serviceweb/rest.php");
+                url = new URL("http://192.168.1.13/serviceweb/rest.php");
                 HttpURLConnection conn =(HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("PUT");
                 conn.setDoInput(true);
